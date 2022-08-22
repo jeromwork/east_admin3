@@ -24,7 +24,7 @@
 
           <v-card-text>
             <v-window v-model="tab">
-              <v-window-item value="login">
+              <v-window-item value="login" :eager="true">
                 <v-card>
                   <v-card-text>
                     <v-form
@@ -93,7 +93,7 @@
                 </v-card>
               </v-window-item>
 
-              <v-window-item value="register">
+              <v-window-item value="register"  :eager="true">
                 <v-card>
                   <v-card-text>
 

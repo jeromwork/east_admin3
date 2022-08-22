@@ -8,7 +8,6 @@
                 <v-btn
                         v-bind="attrs"
                         @click.stop="dialog=true"
-                        icon
                 >
                     <v-icon>mdi-logout</v-icon>
                 </v-btn>

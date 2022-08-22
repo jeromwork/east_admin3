@@ -3,6 +3,7 @@
     nav
     dense
   >
+    {{menu_items}}
 
 
     <v-list-item-group
