@@ -3,61 +3,48 @@
     nav
     dense
   >
-    {{menu_items}}
 
 
-    <v-list-item-group
-      v-for="(item, i) in menu_items"
-      :key="i"
-      active-class="deep-purple--text text--accent-4"
+    <v-list-group
+            v-for="(item, i) in menu_items"
+            :key="i"
     >
-
-      <v-list-group
-        v-if="item.subMenu"
-        :value="false"
-        prepend-icon="mdi-account-circle"
-      >
-
-        <template v-slot:activator>
-          <v-list-item-content>
-            <v-list-item-title>{{item.title}}</v-list-item-title>
-          </v-list-item-content>
-        </template>
-        <router-link style="text-decoration: none; color: inherit;"
-                     :to=subItem.href
-                     v-for="(subItem, si) in item.subMenu"
-                     :key="si"
-        >
-          <v-list-item>
-            <v-list-item-icon>
-              <v-icon>{{subItem.icon}}</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>
-              {{subItem.title}}
-            </v-list-item-title>
-          </v-list-item>
+      <template v-slot:activator="{ props }" v-if="!item.subMenu">
+        <router-link :to=item.href style="text-decoration: none; color: inherit;">
+          <v-list-item :prepend-icon="item.icon" :title="item.title"></v-list-item>
         </router-link>
+      </template>
 
 
-      </v-list-group>
+      <template v-slot:activator="{ props }" v-else>
 
-      <router-link style="text-decoration: none; color: inherit;"
-                   :to=item.href
-                   v-else
-      >
-        <v-list-item>
+        <v-list-group>
+          <template v-slot:activator="{ props }">
 
-          <v-list-item-icon>
-            <v-icon>{{item.icon}}</v-icon>
-          </v-list-item-icon>
-          <v-list-item-title>
-            {{item.title}}
-          </v-list-item-title>
-        </v-list-item>
-      </router-link>
+            <v-list-item
+                    v-bind="props"
+                    :title="item.title"
+                    :prepend-icon="item.icon"
+            ></v-list-item>
+          </template>
+          <router-link style="text-decoration: none; color: inherit;"
+                       v-for="(subItem, i) in item.subMenu"
+                       :key="i"
+                       :to=subItem.href
+          >
+            <v-list-item
+
+                    :title="subItem.title"
+                    :value="subItem.title"
+            ></v-list-item>
+          </router-link>
+
+        </v-list-group>
+
+      </template>
 
 
-    </v-list-item-group>
+    </v-list-group>
 
   </v-list>
 </template>
