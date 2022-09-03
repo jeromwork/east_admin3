@@ -74,7 +74,6 @@ const Access = {
 
         initWebSocket: function(context, message) {
             this.commit('Access/INIT_WEB_SOCKET');
-            console.log(message)
 
         },
         sendToSocket: function(context, data){

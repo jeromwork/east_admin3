@@ -11,7 +11,7 @@
       <v-toolbar-title>Title</v-toolbar-title>
 
       <v-spacer></v-spacer>
-      <LoginBar/>
+      <ec-login-bar/>
     </v-app-bar>
 
     <v-navigation-drawer
@@ -21,7 +21,7 @@
     >
 
 
-      <Menu/>
+      <ec-menu/>
     </v-navigation-drawer>
 
     <v-main>
@@ -32,16 +32,16 @@
 </template>
 
 <script>
-  import LoginBar from './components/Login/LoginBar.vue'
-  import Menu from "./components/Menu/Menu.vue";
+  import EcLoginBar from './components/Login/LoginBar.vue'
+  import EcMenu from "./components/Menu/Menu.vue";
   export default {
     name: 'App',
 
     components: {
-      Menu,
+      EcMenu,
       //DoctorSettings,
       //Login,
-      LoginBar,
+      EcLoginBar,
 
     },
     created(){

@@ -7,8 +7,7 @@
             <template v-slot:activator="{ on, attrs }">
                 <v-btn
                         v-bind="attrs"
-                        v-on="on"
-                        icon
+                        @click.stop="dialog=true"
                 >
                     <v-icon>mdi-logout</v-icon>
                 </v-btn>
